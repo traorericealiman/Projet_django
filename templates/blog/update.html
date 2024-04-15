@@ -1,0 +1,80 @@
+{% extends 'produits/base.html' %}
+{% load cart_template_tags %}
+{% load static %}
+
+{% block content %}
+
+    <!-- banner bg main start -->
+    <div class="banner_bg_main">
+        <!-- header top section start -->
+        <div class="container">
+            <div class="header_section_top">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="custom_menu">
+                            <ul>
+                                <li><a href="{% url 'produits:home' %}">Accueil</a></li>
+                                <li><a href="{% url 'produits:About' %}">A propos</a></li>
+                                <li><a href="{% url 'blog_app:blog' %}">Blog</a></li>
+                                <li><a href="{% url 'produits:contact' %}">Contact</a></li>
+                                <li><a href="{% url 'produits:confidentialité' %}">Confidentialité</a></li>
+                                <li>
+                                    <a href="#">
+                                        <span class="badge red z-depth-1 mr-1 text-danger"> {{ request.user|cart_item_count }} </span>
+                                        <i class="fas fa-shopping-cart"></i>
+                                        <span class="padding_10">Panier</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <span class="clearfix d-none d-sm-inline-block"><i class="fa fa-user" aria-hidden="true"></i> {{ request.user }} </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header top section end -->
+
+        <!-- logo section start -->
+        <div class="logo_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="logo"><a href="/"><img src="{% static 'ecom/images/logo.png' %}" alt="PHENIX"></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- logo section end -->
+    </div>
+    <!-- banner section end -->
+
+    <div class="col-md-7 mx-auto text-center">
+        <h1>{{ article.title }}</h1>
+        <small>{{ article.date_added }}</small>
+        <strong>{{ article.intro }}</strong>
+        <p style="color:rgb(42, 51, 42); text-align: justify; font-family: Arial, Helvetica, sans-serif;">{{ article.body }}</p>
+
+        <hr>
+        <h3>Commentaires</h3>
+        
+        {% for comment in comments %}
+            <article>
+                <strong class="text-align-left text-success">{{ comment.name }}</strong> {{ comment.date_added }}
+                <p style="font-family: Arial, Helvetica, sans-serif;">{{ comment.body }}</p>
+            </article>
+        {% empty %}
+            <p>Pas de commentaire</p>
+        {% endfor %}
+                
+        <h3 class="mx-5">Ajouter un nouveau commentaire</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <button type="submit" class="btn text-white bg-success">Commenter</button>
+        </form>
+    </div>
+{% endblock %}

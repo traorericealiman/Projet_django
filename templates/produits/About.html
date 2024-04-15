@@ -1,0 +1,62 @@
+{% extends 'produits/base.html' %}
+{% load cart_template_tags %}
+{% load static %}
+{% block content %}
+
+<h4>{{number}}</h4>
+
+<!-- banner bg main start -->
+<div class="banner_bg_main">
+    <!-- header top section start -->
+    <div class="container">
+       <div class="header_section_top">
+          <div class="row">
+             <div class="col-sm-12">
+                <div class="custom_menu">
+                  <ul>
+                    <li><a href="{% url 'produits:home' %}">Accueil</a></li>
+                    <li><a href="{% url 'produits:About' %}">A propos</a></li>
+                    <li><a href="{% url 'blog_app:blog' %}">Blog</a></li>
+                    <li><a href="{% url 'produits:contact' %}">Contact</a></li>
+                    <li><a href="{% url 'produits:confidentialité' %}">Confidentialité</a></li>
+                    <li class="nav-item">
+                       <a href="{% url 'produits:order-summary' %}" >
+                         <span class="badge red z-depth-1 mr-1 text-danger"> {{ request.user|cart_item_count }} </span>
+                         <i class="fas fa-shopping-cart"></i>
+                         <span class="clearfix d-none d-sm-inline-block"> Panier </span>
+                       </a>
+                     </li>
+                    <li class="nav-item">
+                       <span class="clearfix d-none d-sm-inline-block"><i class="fa fa-user" aria-hidden="true"></i> {{request.user}} </span>
+                     </li>
+                 </ul>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- header top section start -->
+    <!-- logo section start -->
+    <div class="logo_section">
+       <div class="container">
+          <div class="row">
+             <div class="col-sm-12">
+                <div class="logo"><a href="/"><img src="{% static 'ecom/images/logo.png' %}" alt="PHENIX"></a></div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- logo section end -->
+</div>
+<!-- banner section start -->
+
+    <div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2>À propos de notre site</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vestibulum, eros a rhoncus ultricies, mi dui volutpat eros, ac suscipit libero nisi sit amet nunc. Ut auctor urna non arcu tincidunt, id hendrerit risus laoreet. Nullam at semper est. Sed sit amet lorem ac ante gravida aliquet. Nullam eget felis in odio efficitur commodo.</p>
+            <p>Integer pretium massa vel nisi rutrum eleifend. Praesent in ante in dolor imperdiet tincidunt ut ac tortor. Phasellus nec augue vel nisi molestie malesuada. Nullam commodo nisi a enim eleifend commodo. In hac habitasse platea dictumst. Fusce ac nisi et purus mollis lobortis nec vel lacus.</p>
+        </div>
+    </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,14 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: 
+ =?utf-8?q?R=C3=A9initialisation_du_mot_de_passe_sur_127=2E0=2E0=2E1=3A8000?=
+From: webmaster@localhost
+To: Traorericealiman@gmail.com
+Date: Fri, 12 Apr 2024 23:41:54 -0000
+Message-ID: <171296531442.7448.7766970725357852447@Aliman>
+
+Quelqu'un a demandé la réinitialisation du mot de passe pour l'e-mail Traorericealiman@gmail.com. Suivez le lien ci-dessous
+http://127.0.0.1:8000{% url "authapp:password_reset_confirm"
+uidb64=uid token=token %}
+-------------------------------------------------------------------------------

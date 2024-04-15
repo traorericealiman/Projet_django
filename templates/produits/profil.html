@@ -1,0 +1,57 @@
+{% extends 'produits/base.html' %}
+{% load cart_template_tags %}
+{% load static %}
+
+{% block content %}
+
+<!-- banner bg main start -->
+<div class="banner_bg_main">
+    <!-- header top section start -->
+    <div class="container">
+       <div class="header_section_top">
+          <div class="row">
+             <div class="col-sm-12">
+                <div class="custom_menu">
+                  <ul>
+                    <li><a href="{% url 'produits:home' %}">Accueil</a></li>
+                    <li><a href="{% url 'produits:About' %}">A propos</a></li>
+                    <li><a href="{% url 'blog_app:blog' %}">Blog</a></li>
+                    <li><a href="{% url 'produits:contact' %}">Contact</a></li>
+                    <li><a href="{% url 'produits:confidentialité' %}">Confidentialité</a></li>
+                    <li class="nav-item">
+                       <a href="{% url 'produits:order-summary' %}" >
+                         <span class="badge red z-depth-1 mr-1 text-danger"> {{ request.user|cart_item_count }} </span>
+                         <i class="fas fa-shopping-cart"></i>
+                         <span class="clearfix d-none d-sm-inline-block"> Panier </span>
+                       </a>
+                     </li>
+                    <li class="nav-item">
+                       <span class="clearfix d-none d-sm-inline-block"><i class="fa fa-user" aria-hidden="true"></i> {{request.user}} </span>
+                     </li>
+                 </ul>
+                </div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- header top section start -->
+    <!-- logo section start -->
+    <div class="logo_section">
+       <div class="container">
+          <div class="row">
+             <div class="col-sm-12">
+                <div class="logo"><a href="/"><img src="{% static 'ecom/images/logo.png' %}" alt="PHENIX"></a></div>
+             </div>
+          </div>
+       </div>
+    </div>
+    <!-- logo section end -->
+  </div>
+  <!-- banner section start -->
+  
+  {% if user.is_authenticated %}
+
+{% endif %}
+
+{% endblock %}  <!-- Ajoutez ceci pour fermer le bloc content -->
+

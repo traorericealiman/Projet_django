@@ -1,0 +1,74 @@
+{% extends 'produits/base.html' %}
+{% load cart_template_tags %}
+{% load static %}
+
+{% block title %}Politique de confidentialité et Règles d'usage{% endblock %}
+
+{% block content %}
+
+<!-- banner bg main start -->
+<div class="banner_bg_main">
+   <!-- header top section start -->
+   <div class="container">
+      <div class="header_section_top">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="custom_menu">
+                 <ul>
+                   <li><a href="{% url 'produits:home' %}">Accueil</a></li>
+                   <li><a href="{% url 'produits:About' %}">A propos</a></li>
+                   <li><a href="{% url 'blog_app:blog' %}">Blog</a></li>
+                   <li><a href="{% url 'produits:contact' %}">Contact</a></li>
+                   <li><a href="{% url 'produits:confidentialité' %}">Confidentialité</a></li>
+                   <li class="nav-item">
+                      <a href="{% url 'produits:order-summary' %}" >
+                        <span class="badge red z-depth-1 mr-1 text-danger"> {{ request.user|cart_item_count }} </span>
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="clearfix d-none d-sm-inline-block"> Panier </span>
+                      </a>
+                    </li>
+                   <li class="nav-item">
+                      <span class="clearfix d-none d-sm-inline-block"><i class="fa fa-user" aria-hidden="true"></i> {{request.user}} </span>
+                    </li>
+                </ul>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- header top section start -->
+   <!-- logo section start -->
+   <div class="logo_section">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <div class="logo"><a href="/"><img src="{% static 'ecom/images/logo.png' %}" alt="PHENIX"></a></div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- logo section end -->
+</div>
+<!-- banner section start -->
+<section class="container mt-5 p-2">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h2 class="mb-4">Politique de confidentialité</h2>
+            <p>Nous prenons au sérieux la protection de vos données personnelles. Notre politique de confidentialité explique comment nous collectons, utilisons et protégeons vos informations. En utilisant notre site, vous acceptez cette politique.</p>
+            <p>Si vous avez des questions concernant notre politique de confidentialité, n'hésitez pas à nous contacter.</p>
+            <h3>Collecte et utilisation des informations</h3>
+            <p>Nous collectons certaines informations lorsque vous utilisez notre site, y compris votre nom, votre adresse e-mail et d'autres informations que vous nous fournissez. Ces informations sont utilisées pour vous fournir les services que vous demandez et pour améliorer votre expérience utilisateur.</p>
+            <h3>Protection des informations</h3>
+            <p>Nous utilisons des mesures de sécurité pour protéger vos informations personnelles contre tout accès non autorisé ou toute divulgation. Cependant, aucune méthode de transmission sur Internet ou de stockage électronique n'est totalement sécurisée et nous ne pouvons garantir une sécurité absolue.</p>
+            <h2 class="mt-5 mb-4">Règles d'usage</h2>
+            <h3>Acceptation des conditions d'utilisation</h3>
+            <p>En utilisant notre site, vous acceptez de vous conformer à ces règles d'utilisation. Si vous n'acceptez pas ces règles, veuillez ne pas utiliser notre site.</p>
+            <h3>Contenu utilisateur</h3>
+            <p>Vous êtes responsable de tout contenu que vous publiez sur notre site. Nous nous réservons le droit de supprimer tout contenu que nous jugeons inapproprié.</p>
+            <h3>Propriété intellectuelle</h3>
+            <p>Tout le contenu présent sur notre site, y compris le texte, les images, les logos et les vidéos, est protégé par les lois sur la propriété intellectuelle. Vous ne pouvez pas utiliser ce contenu sans notre autorisation préalable.</p>
+            <p>Si vous avez des questions concernant nos règles d'utilisation, veuillez nous contacter.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
